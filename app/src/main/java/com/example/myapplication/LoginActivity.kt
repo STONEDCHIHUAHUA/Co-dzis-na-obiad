@@ -35,7 +35,10 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // poprawne zalogowanie przejdz do HomeActivity
+                        val user = FirebaseAuth.getInstance().currentUser;
+                        val UserID = user?.email.toString()
                         val intent = Intent(this, HomeActivity::class.java)
+                        intent.putExtra("UserID",UserID)
                         startActivity(intent)
                         finish()
                     } else {

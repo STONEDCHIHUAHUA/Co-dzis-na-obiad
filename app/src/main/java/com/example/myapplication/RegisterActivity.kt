@@ -41,7 +41,11 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // rejestracja poprawna przejdz do HomeActivity
                         Toast.makeText(this, "Rejestracja poprawna", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, HomeActivity::class.java))
+                        val user = FirebaseAuth.getInstance().currentUser;
+                        val UserID = user?.email.toString()
+                        val intent = Intent(this, HomeActivity::class.java)
+                        intent.putExtra("UserID",UserID)
+                        startActivity(intent)
                         finish()
                     } else {
                         // rejestracja niepoprawna
@@ -49,5 +53,6 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
         }
+
     }
 }
