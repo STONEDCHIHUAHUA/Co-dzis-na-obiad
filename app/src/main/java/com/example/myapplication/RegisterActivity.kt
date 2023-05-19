@@ -1,3 +1,5 @@
+package com.example.myapplication
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,8 +22,8 @@ class RegisterActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         // znajdowanie guzikow/pol tekstu
-        emailEditText = findViewById(R.id.emailEditText)
-        passwordEditText = findViewById(R.id.passwordEditText)
+        emailEditText = findViewById(R.id.register_emailEditText)
+        passwordEditText = findViewById(R.id.register_passwordEditText)
         registerButton = findViewById(R.id.registerButton)
 
         // przypisanie wartosci
@@ -41,7 +43,7 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // rejestracja poprawna przejdz do HomeActivity
                         Toast.makeText(this, "Rejestracja poprawna", Toast.LENGTH_SHORT).show()
-                        val user = FirebaseAuth.getInstance().currentUser;
+                        val user = FirebaseAuth.getInstance().currentUser
                         val UserID = user?.email.toString()
                         val intent = Intent(this, HomeActivity::class.java)
                         intent.putExtra("UserID",UserID)

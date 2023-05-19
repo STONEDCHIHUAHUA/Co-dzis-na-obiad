@@ -1,3 +1,5 @@
+package com.example.myapplication
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -17,8 +19,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         mAuth = FirebaseAuth.getInstance()
-        emailEditText = findViewById(R.id.emailEditText)
-        passwordEditText = findViewById(R.id.passwordEditText)
+        emailEditText = findViewById(R.id.login_emailEditText)
+        passwordEditText = findViewById(R.id.login_passwordEditText)
         loginButton = findViewById(R.id.loginButton)
 
         loginButton.setOnClickListener {
@@ -35,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // poprawne zalogowanie przejdz do HomeActivity
-                        val user = FirebaseAuth.getInstance().currentUser;
+                        val user = FirebaseAuth.getInstance().currentUser
                         val UserID = user?.email.toString()
                         val intent = Intent(this, HomeActivity::class.java)
                         intent.putExtra("UserID",UserID)
