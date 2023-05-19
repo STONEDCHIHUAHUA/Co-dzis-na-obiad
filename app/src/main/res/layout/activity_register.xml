@@ -8,9 +8,9 @@
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="32dp"
         android:text="Register"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_passwordEditText" />
 
@@ -18,12 +18,12 @@
         android:id="@+id/register_passwordEditText"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="28dp"
         android:autofillHints="password"
         android:ems="10"
         android:hint="Podaj hasło"
         android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_emailEditText" />
 
@@ -31,12 +31,12 @@
         android:id="@+id/register_emailEditText"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="232dp"
         android:autofillHints="emailAddress"
         android:ems="10"
         android:hint="Podaj adres email"
         android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
