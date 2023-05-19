@@ -28,14 +28,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-    override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
 }
