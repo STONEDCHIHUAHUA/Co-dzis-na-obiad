@@ -23,6 +23,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:label="My Application"
+            android:theme="@style/Theme.MyApplication">
+        </activity>
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true"
+            android:label="My Application"
+            android:theme="@style/Theme.MyApplication">
+        </activity>
+
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:label="My Application"
+            android:theme="@style/Theme.MyApplication">
+        </activity>
     </application>
 
 </manifest>

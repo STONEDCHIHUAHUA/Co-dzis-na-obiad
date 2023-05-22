@@ -1,18 +1,17 @@
 package com.example.myapplication
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
 import java.util.Locale
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : Activity() {
 
     private lateinit var listView: ListView
     private lateinit var searchView: SearchView
@@ -22,6 +21,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
 
         listView = findViewById(R.id.listView)
         searchView = findViewById(R.id.searchView)
@@ -81,7 +81,7 @@ class HomeActivity : AppCompatActivity() {
         })
     }
 
-    class ListAdapter(context: AppCompatActivity, private val itemList: MutableList<String>) :
+    class ListAdapter(context: Activity, private val itemList: MutableList<String>) :
         BaseAdapter(), Filterable {
 
         private var filteredItemList: MutableList<String> = itemList

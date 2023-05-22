@@ -1,14 +1,18 @@
 package com.example.myapplication
 
+import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : Activity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var emailEditText: EditText
@@ -20,6 +24,8 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         auth = FirebaseAuth.getInstance()
+        // Inicjalizacja Firestore
+        val dbFridge = FirebaseFirestore.getInstance()
 
         // znajdowanie guzikow/pol tekstu
         emailEditText = findViewById(R.id.register_emailEditText)
@@ -48,6 +54,16 @@ class RegisterActivity : AppCompatActivity() {
                         val intent = Intent(this, HomeActivity::class.java)
                         intent.putExtra("UserID",UserID)
                         startActivity(intent)
+                        if (user != null) {
+                           dbFridge.collection("fridge")
+                                .add(user)
+                                .addOnSuccessListener { documentReference ->
+                                    Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.w(TAG, "Error adding document", e)
+                                }
+                        }
                         finish()
                     } else {
                         // rejestracja niepoprawna
